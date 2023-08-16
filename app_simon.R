@@ -426,7 +426,7 @@ responses needed for early termination of the trial for overwhelming efficacy, w
         are enrolled. Then suppose we observe \\(X_{n_1^*}\\) = ", input$X, " responses.", 
          "After the interim analysis we update \\(R\\) to \\(R'\\) = ", my_text_a()$R_, "\\((R' ≥ R)\\).",
         br(),
-        "We can draw the following monitornig regions' graph to see where our interim analysis result is located (the green circle).",
+        "We can draw the following monitornig regions' graph to see where our interim analysis result is located (the yellow point).",
         tags$ul(
           tags$li("If we are in the", strong("favorable"), "region the trial is overwhelmingly 
       positive and may be terminated early."),
