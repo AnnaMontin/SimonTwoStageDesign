@@ -1,6 +1,4 @@
 rm(list=ls())
-directory <- "C:\\Users\\AnnaMontin\\OneDrive - Alira Health\\Documents\\Simon2stage_design"
-setwd(directory)
 source("functions.R") 
 
 # Load packages --------------------------------------------------------
