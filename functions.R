@@ -1,5 +1,4 @@
-directory <- ""
-setwd(directory)
+
 ### ------ list of functions needed ------ ###
 
 # prob of rejection a treatment given p = prob of response
