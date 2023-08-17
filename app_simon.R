@@ -1,5 +1,5 @@
 rm(list=ls())
-directory <- ""
+directory <- "C:\\Users\\AnnaMontin\\OneDrive - Alira Health\\Documents\\Simon2stage_design"
 setwd(directory)
 source("functions.R") 
 
@@ -119,16 +119,16 @@ ui <- fluidPage(
                                                           uiOutput("theory2"))
                                                 )
                   ),
-                  tabPanel("Plot", tabsetPanel(id = "subTab2", 
-                                               tabPanel("Simon's Two-Stage Design", 
-                                                        h2("Simon's Two-Stage Design"), 
-                                                        h3("Designs description"),
+                  tabPanel("Simon's Two-Stage design", tabsetPanel(id = "subTab2", 
+                                               tabPanel("Suitable designs", 
+                                                        #h2("Simon's Two-Stage Design"), 
+                                                        h2("Designs description"),
                                                         uiOutput(outputId = "text_desc"),
                                                         plotOutput(outputId = "plot1",
                                                         brush = brushOpts(id = "plot_brush", fill = "#FDCF83", stroke = "#FD8204", 
                                                          opacity = 0.25, delay = 300, delayType = c("debounce", "throttle"), 
                                                          clip = TRUE, direction = c("xy", "x", "y"))),
-                                                      h3("All the possible designs \\( (r_1 / n_1; r/n)\\) given the parameters  \\( (p_0; p_1; \\alpha; \\beta)\\)"),
+                                                      h2("All the possible designs \\( (r_1 / n_1; r/n)\\) given the parameters  \\( (p_0; p_1; \\alpha; \\beta)\\)"),
                               #style="text-align:left; margin:0; padding:0;"),
                                                       uiOutput(outputId = "textTab"),
                                                       dataTableOutput(outputId = "tab")),
@@ -142,8 +142,8 @@ ui <- fluidPage(
                                                          uiOutput(outputId = "desc_samllNo"),
                                                          plotOutput(outputId = "plot_samllNo"))
                   )),
-                  tabPanel("Regions", h2("Modified Simon's Two-Stage Design"),
-                           h2("The monitoring regions"),
+                  tabPanel("Modified Simon's Two-Stage Design", #h2("Modified Simon's Two-Stage Design"),
+                           h2("The modification steps"),
                            uiOutput(outputId = "textReg"),
                            h4("Sample size re-estimation under the alternative hypothesis", style="text-align:left; padding:0;"),
                            plotOutput(outputId = "regions"),
@@ -152,7 +152,7 @@ ui <- fluidPage(
                            plotOutput(outputId = "regions2"),
                            uiOutput(outputId = "text")
                   ),
-                  tabPanel("All plots", h2("Modified Simon's Two-Stage Design"),
+                  tabPanel("Other plots", h2("Modified Simon's Two-Stage Design"),
                            uiOutput(outputId = "all_reg_theory"),
                            uiOutput(outputId = "text_all_reg"),
                            plotOutput(outputId = "all_regions"),
@@ -230,7 +230,7 @@ server <- function(input, output, session) {
                   the null hypothesis: \\(EN = PET(p_0) × n_1 + (1 - PET(p_0)) × n\\).")
         ),
       ),
-      p("The values for the quantities here presented are displayed on the table in the", em("plot"), "section."),
+      p("The values for the quantities here presented are displayed on the table in the", em("Simon's Two-Stage Design"), "section."),
       paste0("Insights into the Simon's Two Stage Design can be found at the folliwing link:"),
       a("Simon's Two-Stage Design", href = "https://pubmed.ncbi.nlm.nih.gov/14755389/"),
       paste0("."),
@@ -302,8 +302,9 @@ responses needed for early termination of the trial for overwhelming efficacy, w
           tags$li("\\( CP_0(N^*, R^*) ≥ CP_{required}\\), where \\(CP_{required}\\) is a desired level of conditional power."),
         ),
         "All solutions for \\( N^*\\) and \\(R^*\\) that satisfy the condition above are feasible solutions. 
-        The", strong("optimal solution"), "\\( (N^*, R^*)\\) is the one where \\(N^*\\) is the smallest new 
-        sample size among all the feasible solutions."
+        The", strong("optimal solution"), "\\( (N^*, R^*)\\) is the one where \\(N^*\\) is the smallest new sample size among all the feasible solutions.",
+        br(),
+        "See the", em("Modified Simon's Two-Stage Design"), "section."
         )
     )
   })
